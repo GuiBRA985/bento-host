@@ -87,9 +87,14 @@
   }
   .hero-bg {
     position: absolute; inset: 0;
-    background:
-      linear-gradient(to bottom, rgba(10,28,20,0.3) 0%, rgba(10,28,20,0.15) 40%, rgba(10,28,20,0.75) 100%),
-      url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1600&q=80') center/cover no-repeat;
+    /* keep a subtle gradient overlay; the video will sit beneath */
+    background: linear-gradient(to bottom, rgba(10,28,20,0.3) 0%, rgba(10,28,20,0.15) 40%, rgba(10,28,20,0.75) 100%);
+    overflow: hidden;
+  }
+  .hero-bg video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
     transform: scale(1.04);
     animation: slowzoom 20s ease-in-out infinite alternate;
   }
@@ -624,11 +629,16 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="capa.mp4" type="video/mp4">
+      <!-- fallback image/text -->
+    </video>
+  </div>
   <div class="hero-content">
     <span class="hero-eyebrow">Ecoturismo · Pantanal Mato-Grossense</span>
     <h1 class="hero-title">A maior planície<br>alagável do <em>mundo</em><br>te aguarda.</h1>
-    <p class="hero-sub">Expedições exclusivas de pequenos grupos ao coração do Pantanal. Encontros inesquecíveis com onças-pintadas, ariranhas e tuiuiús — guiados por naturalistas apaixonados.</p>
+    <p class="hero-sub">Expedições exclusivas de pequenos grupos ao coração do Pantanal. Encontros inesquecíveis com onças-pintadas, ariranhas e tuiuiús — guiados por naturalistas apaixonados[...]</p>
     <div class="hero-actions">
       <a href="#pacotes" class="btn-primary">Ver Expedições</a>
       <a href="#conservacao" class="btn-ghost">Nossa Missão</a>
@@ -701,7 +711,7 @@
       <div class="card-body">
         <span class="card-tag">Observação de aves</span>
         <h3 class="card-title">Passarinhada no Pantanal</h3>
-        <p class="card-desc">Para os birders de plantão: mais de 650 espécies registradas na região. Saídas ao amanhecer com binóculos e guias ornitólogos. Inclui fazenda com torre de observação.</p>
+        <p class="card-desc">Para os birders de plantão: mais de 650 espécies registradas na região. Saídas ao amanhecer com binóculos e guias ornitólogos. Inclui fazenda com torre de observaç�[...]</p>
         <div class="card-footer">
           <div class="card-price">
             <span>A partir de</span>
@@ -883,17 +893,18 @@
   </div>
   <div class="depoimentos-grid">
     <div class="depoimento">
-      <p class="depoimento-texto">"Ver uma onça-pintada a três metros de distância, no habitat natural dela, mudou completamente minha visão sobre a natureza. A equipe da Pantanal Selvagem criou o ambiente perfeito para isso."</p>
+      <p class="depoimento-texto">"Ver uma onça-pintada a três metros de distância, no habitat natural dela, mudou completamente minha visão sobre a natureza. A equipe da Pantanal Selvagem criou o[...]</p>
       <div class="depoimento-autor">Renata Menezes</div>
       <div class="depoimento-local">São Paulo · Expedição Trilha das Onças</div>
     </div>
     <div class="depoimento">
-      <p class="depoimento-texto">"Levei minha família pela primeira vez ao Pantanal. Os guias tornaram tudo acessível para as crianças sem perder a autenticidade. Foi o melhor investimento em memórias que já fiz."</p>
+      <p class="depoimento-texto">"Levei minha família pela primeira vez ao Pantanal. Os guias tornaram tudo acessível para as crianças sem perder a autenticidade. Foi o melhor investimento em mem�[...]</p>
       <div class="depoimento-autor">Pedro Lacerda</div>
       <div class="depoimento-local">Rio de Janeiro · Primeiros Passos no Pantanal</div>
     </div>
     <div class="depoimento">
-      <p class="depoimento-texto">"Como fotógrafo profissional, fui cético no início. Mas os ângulos, a paciência dos guias e o conhecimento do ecossistema resultaram nas melhores imagens da minha carreira."</p>
+      <p class="depoimento-texto">"Como fotógrafo profissional, fui cético no início. Mas os ângulos, a paciência dos guias e o conhecimento do ecossistema resultaram nas melhores imagens da minh[...]
+      </p>
       <div class="depoimento-autor">Carlos Fujimoto</div>
       <div class="depoimento-local">Curitiba · Expedição Fotográfica</div>
     </div>
@@ -908,7 +919,7 @@
         <span class="section-eyebrow">Nossa missão</span>
         <h2 class="section-title">Turismo que<br><em>protege</em></h2>
       </div>
-      <p>O Pantanal enfrenta desmatamento, queimadas e pressão do agronegócio. Cada expedição que realizamos contribui diretamente para a conservação do ecossistema e para a renda das comunidades locais.</p>
+      <p>O Pantanal enfrenta desmatamento, queimadas e pressão do agronegócio. Cada expedição que realizamos contribui diretamente para a conservação do ecossistema e para a renda das comunidade[...]</p>
       <p>Trabalhamos com fazendas certificadas, exigimos impacto zero nos ecossistemas visitados e repassamos parte das receitas para projetos de reflorestamento e proteção de onças-pintadas.</p>
       <a href="#contato" class="btn-primary" style="margin-top:1rem">Conhecer o projeto</a>
     </div>
