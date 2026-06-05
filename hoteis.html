@@ -20,13 +20,43 @@ body{
     color:#333;
 }
 
+/* NAV (copied/simplified from index.html) */
+nav{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 24px;
+    background:transparent;
+}
+.nav-logo{
+    font-family:Playfair Display, serif;
+    font-size:1.2rem;
+    color:#fff;
+    text-decoration:none;
+}
+.nav-logo span{ color:#e6b054; }
+.nav-links{ display:flex; gap:16px; align-items:center; }
+.nav-links a{ color:rgba(255,255,255,0.95); text-decoration:none; font-size:0.85rem; text-transform:uppercase; }
+.nav-cta{ background:#c8922a; color:#fff; padding:8px 12px; border-radius:4px; text-decoration:none; }
+
 .hero{
     height:70vh;
-    background:url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600") center center/cover;
+    background:url("https://upload.wikimedia.org/wikipedia/commons/7/7e/Jaguar_drinking_water_%28Yacare_Lodge%2C_Pantanal%2C_Brazil%29.jpg") center center/cover;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
+    position:relative;
+    padding-top:60px; /* space for fixed nav */
+}
+
+.hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.55));
 }
 
 .hero-content{
@@ -34,6 +64,8 @@ body{
     padding:30px;
     border-radius:15px;
     color:white;
+    position:relative;
+    z-index:2;
 }
 
 .hero h1{
@@ -107,6 +139,18 @@ footer{
 </style>
 </head>
 <body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Pantanal <span>Selvagem</span></a>
+  <div class="nav-links">
+    <a href="guias.html">GUIAS</a>
+    <a href="pacotes.html">PACOTES</a>
+    <a href="hoteis.html">HOTEIS</a>
+    <a href="albuns.html">ÁLBUNS</a>
+    <a href="#contato" class="nav-cta">CONSULTAR</a>
+  </div>
+</nav>
 
 <section class="hero">
     <div class="hero-content">
@@ -220,6 +264,22 @@ Solicitar orçamento
 </a>
 
 </footer>
+
+<script>
+// Redirect clicks on any non-link area to index.html
+document.addEventListener('click', function (e) {
+  // Ignore clicks with modifier keys or right-clicks
+  if (e.defaultPrevented) return;
+  if (e.button !== 0) return; // only left clicks
+  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+  // If the click happened inside an <a> element, do nothing
+  if (e.target.closest && e.target.closest('a')) return;
+
+  // Otherwise navigate to index
+  window.location.href = 'index.html';
+});
+</script>
 
 </body>
 </html>
