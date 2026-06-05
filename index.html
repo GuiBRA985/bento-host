@@ -150,7 +150,7 @@
   .section-title { font-family:'Playfair Display', serif; font-size: clamp(2rem,3.5vw,2.8rem); color:var(--verde-escuro); line-height:1.15; }
   .section-title em { color:var(--dourado); font-style:italic; }
 
-  /* PACOTES */
+  /* PACOTES (kept styles but content removed) */
   .pacotes { padding:6rem 3rem; background:var(--branco); }
   .pacotes-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap:2rem; max-width:1180px; margin:0 auto; }
   .card { background:var(--branco); border:1px solid rgba(26,58,46,0.12); border-radius:3px; overflow:hidden; transition: transform 0.25s, box-shadow 0.25s; cursor:pointer; }
@@ -167,7 +167,7 @@
   .btn-sm { background:var(--verde-escuro); color:var(--creme); text-decoration:none; padding:0.55rem 1.2rem; font-size:0.82rem; border-radius:2px; transition:background 0.2s; }
   .btn-sm:hover { background:var(--verde-medio); }
 
-  /* WILDLIFE */
+  /* WILDLIFE / EXPERIENCIA / TESTEMUNHOS / CONSERVACAO styles kept but sections removed from page */
   .wildlife { background:var(--verde-escuro); padding:6rem 3rem; position:relative; overflow:hidden; }
   .wildlife::before { content:''; position:absolute; right:-120px; top:-80px; width:600px; height:600px; border-radius:50%; background: rgba(74,140,106,0.08); }
   .wildlife .section-title { color:var(--creme); }
@@ -179,7 +179,6 @@
   .animal-name { font-family:'Playfair Display', serif; font-size:0.95rem; color:var(--creme); font-style:italic; }
   .animal-sub { font-size:0.72rem; color: rgba(245,240,232,0.5); margin-top:0.2rem; letter-spacing:0.04em; }
 
-  /* EXPERIENCIA */
   .experiencia { padding:6rem 3rem; background:var(--creme); }
   .exp-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; max-width:1180px; margin:0 auto; }
   .exp-big { grid-row: span 2; position:relative; border-radius:3px; overflow:hidden; min-height:420px; display:flex; align-items:flex-end; background: linear-gradient(to bottom, var(--verde-claro), var(--verde-escuro)); }
@@ -190,7 +189,6 @@
   .exp-label h3 { font-family:'Playfair Display', serif; color:var(--creme); font-size:1.15rem; margin-bottom:0.3rem; }
   .exp-label p { font-size:0.82rem; color: rgba(245,240,232,0.7); }
 
-  /* TESTEMUNHOS */
   .testemunhos { padding:6rem 3rem; background:var(--branco); }
   .depoimentos-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap:2rem; max-width:1180px; margin:0 auto; }
   .depoimento { padding:2rem; border-left:3px solid var(--dourado); background:var(--creme); }
@@ -198,7 +196,6 @@
   .depoimento-autor { font-size:0.82rem; color:var(--texto-suave); font-weight:500; }
   .depoimento-local { font-size:0.78rem; color:var(--dourado); letter-spacing:0.06em; }
 
-  /* CONSERVACAO */
   .conservacao { background:var(--creme-escuro); padding:6rem 3rem; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; max-width:1180px; margin:0 auto; }
   .conservacao-text .section-header { text-align:left; margin-bottom:1.5rem; }
   .conservacao-text p { font-size:0.95rem; color:var(--texto-suave); line-height:1.8; margin-bottom:1rem; }
@@ -301,102 +298,7 @@
   </div>
 </section>
 
-<!-- PACOTES (placeholder) -->
-<section id="pacotes" class="pacotes">
-  <div class="section-header">
-    <span class="section-eyebrow">Nossas Rotas</span>
-    <h2 class="section-title">Pacotes e Expedições</h2>
-  </div>
-  <div class="pacotes-grid">
-    <div class="card">
-      <div class="card-img" style="background-image:url('placeholder1.jpg');"></div>
-      <div class="card-body">
-        <div class="card-tag">Fotografia</div>
-        <div class="card-title">Trilha das Onças</div>
-        <div class="card-desc">5 dias de expedição focada em fotografia de vida selvagem.</div>
-        <div class="card-footer">
-          <div class="card-price"><strong>R$ 4.200</strong> por pessoa</div>
-          <a class="btn-sm" href="pacotes.html">Ver</a>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-img" style="background-image:url('placeholder2.jpg');"></div>
-      <div class="card-body">
-        <div class="card-tag">Aves</div>
-        <div class="card-title">Passarinhada no Pantanal</div>
-        <div class="card-desc">3 dias de observação guiada com especialistas em aves.</div>
-        <div class="card-footer">
-          <div class="card-price"><strong>R$ 2.100</strong> por pessoa</div>
-          <a class="btn-sm" href="pacotes.html">Ver</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WILDLIFE -->
-<section id="vida-selvagem" class="wildlife">
-  <div class="section-header">
-    <span class="section-eyebrow">Fauna</span>
-    <h2 class="section-title">Espécies que você pode ver</h2>
-  </div>
-  <div class="wildlife-grid">
-    <div class="animal-card"><span class="animal-emoji">🐆</span><div class="animal-name">Onça-pintada</div><div class="animal-sub">Panthera onca</div></div>
-    <div class="animal-card"><span class="animal-emoji">🦩</span><div class="animal-name">Tuiuiú</div><div class="animal-sub">Jabiru mycteria</div></div>
-    <div class="animal-card"><span class="animal-emoji">🦦</span><div class="animal-name">Ariranha</div><div class="animal-sub">Pteronura brasiliensis</div></div>
-    <div class="animal-card"><span class="animal-emoji">🦉</span><div class="animal-name">Coruja</div><div class="animal-sub">Diversas espécies</div></div>
-  </div>
-</section>
-
-<!-- EXPERIENCIA -->
-<section id="experiencias" class="experiencia">
-  <div class="section-header">
-    <span class="section-eyebrow">Experiências</span>
-    <h2 class="section-title">O que oferecemos</h2>
-  </div>
-  <div class="exp-grid">
-    <div class="exp-big">
-      <div class="exp-overlay"></div>
-      <div class="exp-label"><h3>Expedição Fotográfica</h3><p>Imersão com guias especializados em composição e rastreamento.</p></div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-overlay"></div>
-      <div class="exp-label"><h3>Observação de Aves</h3><p>Guias locais especializados em aves do Pantanal.</p></div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-overlay"></div>
-      <div class="exp-label"><h3>Roteiros de Conservação</h3><p>Participação em projetos locais de proteção ambiental.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTEMUNHOS -->
-<section id="testemunhos" class="testemunhos">
-  <div class="section-header">
-    <span class="section-eyebrow">Depoimentos</span>
-    <h2 class="section-title">O que nossos viajantes dizem</h2>
-  </div>
-  <div class="depoimentos-grid">
-    <div class="depoimento"><div class="depoimento-texto">"Vi mais onças do que esperava. Experiência transformadora."</div><div class="depoimento-autor">Mariana Silva <span class="depoimento-local">— São Paulo</span></div></div>
-    <div class="depoimento"><div class="depoimento-texto">"Guias incríveis e atenção ao meio ambiente."</div><div class="depoimento-autor">Carlos Mendes <span class="depoimento-local">— Rio de Janeiro</span></div></div>
-  </div>
-</section>
-
-<!-- CONSERVACAO -->
-<section id="conservacao" class="conservacao">
-  <div class="conservacao-text">
-    <div class="section-header">
-      <span class="section-eyebrow">Conservação</span>
-      <h2 class="section-title">Trabalhando com comunidades locais</h2>
-    </div>
-    <p>Colaboramos com projetos de pesquisa e apoio a comunidades ribeirinhas, promovendo turismo de baixo impacto e retorno social.</p>
-  </div>
-  <div class="conservacao-nums">
-    <div class="cons-num"><div class="num">24</div><div class="label">Projetos apoiados</div></div>
-    <div class="cons-num"><div class="num">1.200</div><div class="label">Horas voluntárias</div></div>
-  </div>
-</section>
+<!-- REMOVED SECTIONS: Pacotes, Fauna, Experiências, Depoimentos, Conservação -->
 
 <!-- FOOTER -->
 <footer id="contato">
@@ -417,7 +319,7 @@
     <div class="footer-col">
       <h4>Empresa</h4>
       <a href="albuns.html">Nossa Missão</a>
-      <a href="index.html#testemunhos">Depoimentos</a>
+      <!-- depoimentos link removed because section was removed from homepage -->
       <a href="#">Guias Naturalistas</a>
       <a href="#">Parceiros</a>
       <a href="#">Blog</a>
