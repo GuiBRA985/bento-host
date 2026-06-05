@@ -126,12 +126,17 @@
   }
   .hero-title em { font-style: italic; color: var(--dourado-claro); }
   .hero-sub {
-    font-size: 1.08rem;
-    color: rgba(245, 240, 232, 0.8);
-    font-weight: 300;
-    max-width: 500px;
+    font-size: 1.12rem;
+    color: rgba(245, 240, 232, 0.96);
+    font-weight: 400;
+    max-width: 640px;
     line-height: 1.7;
     margin-bottom: 2.4rem;
+    /* Added subtle translucent background + shadow to improve contrast over the new video */
+    background: rgba(10,28,20,0.28);
+    padding: 0.6rem 0.9rem;
+    border-radius: 6px;
+    text-shadow: 0 8px 20px rgba(10,28,20,0.55);
   }
   .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn-primary {
@@ -610,6 +615,8 @@
     .exp-big { grid-row: auto; min-height: 280px; }
     footer { padding: 3rem 1.5rem 2rem; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    /* Reduce hero subtitle padding and font-size slightly on small screens */
+    .hero-sub { font-size: 1rem; padding: 0.4rem 0.6rem; max-width: 100%; }
   }
 </style>
 </head>
@@ -641,7 +648,7 @@
   <div class="hero-content">
     <span class="hero-eyebrow">Ecoturismo · Pantanal Mato-Grossense</span>
     <h1 class="hero-title">A maior planície<br>alagável do <em>mundo</em><br>te aguarda.</h1>
-    <p class="hero-sub">Expedições exclusivas de pequenos grupos ao coração do Pantanal. Encontros inesquecíveis com onças-pintadas, ariranhas e tuiuiús — guiados por naturalistas apaixonados[...]</p>
+    <p class="hero-sub">Expedições exclusivas de pequenos grupos ao coração do Pantanal. Encontros inesquecíveis com onças-pintadas, ariranhas e tuiuiús — guiados por naturalistas apaixo[...]
     <div class="hero-actions">
       <a href="#pacotes" class="btn-primary">Ver Expedições</a>
       <a href="#conservacao" class="btn-ghost">Nossa Missão</a>
@@ -714,7 +721,7 @@
       <div class="card-body">
         <span class="card-tag">Observação de aves</span>
         <h3 class="card-title">Passarinhada no Pantanal</h3>
-        <p class="card-desc">Para os birders de plantão: mais de 650 espécies registradas na região. Saídas ao amanhecer com binóculos e guias ornitólogos. Inclui fazenda com torre de observaç�[...]</p>
+        <p class="card-desc">Para os birders de plantão: mais de 650 espécies registradas na região. Saídas ao amanhecer com binóculos e guias ornitólogos. Inclui fazenda com torre de obser[...]
         <div class="card-footer">
           <div class="card-price">
             <span>A partir de</span>
@@ -790,7 +797,7 @@
       <div class="card-body">
         <span class="card-tag">Premium · Exclusivo</span>
         <h3 class="card-title">Grande Travessia do Pantanal</h3>
-        <p class="card-desc">A expedição definitiva: 10 dias cruzando diferentes biomas pantaneiros, do Pantanal Norte ao Sul. Alojamentos premium, barco privativo e guia residente exclusivo.</p>
+        <p class="card-desc">A expedição definitiva: 10 dias cruzando diferentes biomas pantaneiros, do Pantanal Norte ao Sul. Alojamentos premium, barco privativo e guia residente exclusivo.</[...]
         <div class="card-footer">
           <div class="card-price">
             <span>A partir de</span>
@@ -896,17 +903,17 @@
   </div>
   <div class="depoimentos-grid">
     <div class="depoimento">
-      <p class="depoimento-texto">"Ver uma onça-pintada a três metros de distância, no habitat natural dela, mudou completamente minha visão sobre a natureza. A equipe da Pantanal Selvagem criou o[...]</p>
+      <p class="depoimento-texto">"Ver uma onça-pintada a três metros de distância, no habitat natural dela, mudou completamente minha visão sobre a natureza. A equipe da Pantanal Selvagem cr[...]
       <div class="depoimento-autor">Renata Menezes</div>
       <div class="depoimento-local">São Paulo · Expedição Trilha das Onças</div>
     </div>
     <div class="depoimento">
-      <p class="depoimento-texto">"Levei minha família pela primeira vez ao Pantanal. Os guias tornaram tudo acessível para as crianças sem perder a autenticidade. Foi o melhor investimento em mem�[...]</p>
+      <p class="depoimento-texto">"Levei minha família pela primeira vez ao Pantanal. Os guias tornaram tudo acessível para as crianças sem perder a autenticidade. Foi o melhor investimento em[...]
       <div class="depoimento-autor">Pedro Lacerda</div>
       <div class="depoimento-local">Rio de Janeiro · Primeiros Passos no Pantanal</div>
     </div>
     <div class="depoimento">
-      <p class="depoimento-texto">"Como fotógrafo profissional, fui cético no início. Mas os ângulos, a paciência dos guias e o conhecimento do ecossistema resultaram nas melhores imagens da minh[...]
+      <p class="depoimento-texto">"Como fotógrafo profissional, fui cético no início. Mas os ângulos, a paciência dos guias e o conhecimento do ecossistema resultaram nas melhores imagens da[...]
       </p>
       <div class="depoimento-autor">Carlos Fujimoto</div>
       <div class="depoimento-local">Curitiba · Expedição Fotográfica</div>
@@ -922,8 +929,8 @@
         <span class="section-eyebrow">Nossa missão</span>
         <h2 class="section-title">Turismo que<br><em>protege</em></h2>
       </div>
-      <p>O Pantanal enfrenta desmatamento, queimadas e pressão do agronegócio. Cada expedição que realizamos contribui diretamente para a conservação do ecossistema e para a renda das comunidade[...]</p>
-      <p>Trabalhamos com fazendas certificadas, exigimos impacto zero nos ecossistemas visitados e repassamos parte das receitas para projetos de reflorestamento e proteção de onças-pintadas.</p>
+      <p>O Pantanal enfrenta desmatamento, queimadas e pressão do agronegócio. Cada expedição que realizamos contribui diretamente para a conservação do ecossistema e para a renda das comun[...]
+      <p>Trabalhamos com fazendas certificadas, exigimos impacto zero nos ecossistemas visitados e repassamos parte das receitas para projetos de reflorestamento e proteção de onças-pintadas.<[...]
       <a href="#contato" class="btn-primary" style="margin-top:1rem">Conhecer o projeto</a>
     </div>
     <div class="conservacao-nums">
@@ -998,10 +1005,29 @@
 
 <script>
   const navbar = document.getElementById('navbar');
+  const hero = document.querySelector('.hero');
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
+    if (window.scrollY > 40) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled');
   });
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
+
+  // Smooth reveal for hero content on load
+  document.addEventListener('DOMContentLoaded', () => {
+    const content = document.querySelector('.hero-content');
+    content.style.opacity = 0;
+    content.style.transform = 'translateY(8px)';
+    content.style.transition = 'opacity 600ms ease, transform 600ms ease';
+    requestAnimationFrame(() => {
+      content.style.opacity = 1;
+      content.style.transform = 'translateY(0)';
+    });
+  });
+
+  // Reduce motion for users who prefer it
+  const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (mq.matches) {
+    document.querySelectorAll('video').forEach(v => v.pause());
+    document.documentElement.style.scrollBehavior = 'auto';
+  }
 </script>
 
 </body>
