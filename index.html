@@ -87,7 +87,7 @@
   }
   .hero-bg {
     position: absolute; inset: 0;
-    /* keep a subtle gradient overlay; the video will sit beneath */
+    /* subtle gradient overlay; the video will sit beneath */
     background: linear-gradient(to bottom, rgba(10,28,20,0.3) 0%, rgba(10,28,20,0.15) 40%, rgba(10,28,20,0.75) 100%);
     overflow: hidden;
   }
@@ -630,9 +630,12 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
-    <video autoplay muted loop playsinline preload="metadata">
+    <!-- Use WebM (VP9) first for better compression in supported browsers, fall back to MP4 for Safari/iOS. Add poster for first paint. -->
+    <video autoplay muted loop playsinline preload="metadata" poster="capa-poster.jpg" aria-hidden="true">
+      <source src="capa.webm" type="video/webm">
       <source src="capa.mp4" type="video/mp4">
-      <!-- fallback image/text -->
+      <!-- Fallback image for very old browsers / if video blocked -->
+      <img src="capa-poster.jpg" alt="Pantanal Selvagem — capa">
     </video>
   </div>
   <div class="hero-content">
