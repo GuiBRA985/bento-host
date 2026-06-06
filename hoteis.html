@@ -6,6 +6,9 @@
 
 <title>Hospedagens no Pantanal | Bento Host</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <style>
 
 *{
@@ -18,73 +21,99 @@ body{
     font-family:Arial,sans-serif;
     background:#f5f5f5;
     color:#333;
+    line-height:1.6;
 }
 
-/* NAV (copied/simplified from index.html) */
 nav{
     position:fixed;
-    top:0; left:0; right:0;
+    top:0;
+    left:0;
+    right:0;
     z-index:100;
     display:flex;
-    align-items:center;
     justify-content:space-between;
-    padding:14px 24px;
-    background:transparent;
+    align-items:center;
+    padding:15px 30px;
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(8px);
 }
+
 .nav-logo{
-    font-family:Playfair Display, serif;
-    font-size:1.2rem;
-    color:#fff;
+    color:white;
     text-decoration:none;
+    font-size:1.4rem;
+    font-weight:bold;
 }
-.nav-logo span{ color:#e6b054; }
-.nav-links{ display:flex; gap:16px; align-items:center; }
-.nav-links a{ color:rgba(255,255,255,0.95); text-decoration:none; font-size:0.85rem; text-transform:uppercase; }
-.nav-cta{ background:#c8922a; color:#fff; padding:8px 12px; border-radius:4px; text-decoration:none; }
+
+.nav-logo span{
+    color:#d4a017;
+}
+
+.nav-links{
+    display:flex;
+    gap:20px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-size:.9rem;
+}
+
+.nav-cta{
+    background:#c8922a;
+    padding:10px 15px;
+    border-radius:6px;
+}
 
 .hero{
     height:70vh;
-    background:url("https://upload.wikimedia.org/wikipedia/commons/7/7e/Jaguar_drinking_water_%28Yacare_Lodge%2C_Pantanal%2C_Brazil%29.jpg") center center/cover;
+    background:url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600&auto=format&fit=crop") center center/cover;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
     position:relative;
-    padding-top:60px; /* space for fixed nav */
 }
 
 .hero::before{
     content:"";
-    position:absolute; inset:0;
-    background:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.55));
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.45);
 }
 
 .hero-content{
-    background:rgba(0,0,0,.55);
-    padding:30px;
-    border-radius:15px;
-    color:white;
     position:relative;
     z-index:2;
+    color:white;
+    max-width:800px;
+    padding:30px;
 }
 
 .hero h1{
     font-size:3rem;
-}
-
-.hero p{
-    margin-top:10px;
+    margin-bottom:15px;
 }
 
 .container{
-    max-width:1300px;
+    max-width:1400px;
     margin:auto;
-    padding:40px 20px;
+    padding:50px 20px;
+}
+
+.aviso{
+    background:white;
+    border-left:6px solid #c8922a;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:40px;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
 }
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
     gap:25px;
 }
 
@@ -92,12 +121,17 @@ nav{
     background:white;
     border-radius:15px;
     overflow:hidden;
-    box-shadow:0 4px 12px rgba(0,0,0,.15);
+    box-shadow:0 4px 15px rgba(0,0,0,.12);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
 }
 
 .card img{
     width:100%;
-    height:220px;
+    height:250px;
     object-fit:cover;
 }
 
@@ -114,134 +148,266 @@ nav{
     margin-bottom:10px;
 }
 
-.btn{
-    display:inline-block;
-    margin-top:15px;
-    background:#2e7d32;
-    color:white;
-    text-decoration:none;
-    padding:12px 20px;
-    border-radius:8px;
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:15px 0;
 }
 
-.btn:hover{
-    background:#1b5e20;
+.tags span{
+    background:#edf6ed;
+    color:#2e7d32;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:.85rem;
+}
+
+.diaria{
+    margin-top:15px;
+    font-size:1.05rem;
+}
+
+.obs{
+    font-size:.8rem;
+    color:#666;
+    margin-top:5px;
+}
+
+.botoes{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.btn{
+    text-decoration:none;
+    color:white;
+    padding:12px 18px;
+    border-radius:8px;
+    font-size:.9rem;
+}
+
+.maps{
+    background:#1976d2;
+}
+
+.roteiro{
+    background:#2e7d32;
 }
 
 footer{
     background:#111;
     color:white;
     text-align:center;
-    padding:40px;
-    margin-top:50px;
+    padding:50px 20px;
+    margin-top:60px;
+}
+
+footer .btn{
+    display:inline-block;
+    margin-top:20px;
+}
+
+@media(max-width:768px){
+
+.nav-links{
+    display:none;
+}
+
+.hero h1{
+    font-size:2rem;
+}
+
 }
 
 </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav id="navbar">
-  <a href="index.html" class="nav-logo">Pantanal <span>Selvagem</span></a>
-  <div class="nav-links">
-    <a href="guias.html">GUIAS</a>
-    <a href="pacotes.html">PACOTES</a>
-    <a href="hoteis.html">HOTEIS</a>
-    <a href="albuns.html">ÁLBUNS</a>
-    <a href="#contato" class="nav-cta">CONSULTAR</a>
-  </div>
+<nav>
+    <a href="index.html" class="nav-logo">
+        Pantanal <span>Selvagem</span>
+    </a>
+
+    <div class="nav-links">
+        <a href="guias.html">GUIAS</a>
+        <a href="pacotes.html">PACOTES</a>
+        <a href="hoteis.html">HOSPEDAGENS</a>
+        <a href="albuns.html">ÁLBUNS</a>
+    </div>
 </nav>
 
 <section class="hero">
     <div class="hero-content">
         <h1>Hospedagens no Pantanal</h1>
-        <p>Escolha sua hospedagem e monte seu pacote completo.</p>
+        <p>
+            Escolha a hospedagem ideal e monte um roteiro personalizado
+            com passeios, transporte e guia especializado.
+        </p>
     </div>
 </section>
 
 <div class="container">
 
-<h2 style="margin-bottom:25px;">Poconé → Transpantaneira → Porto Jofre</h2>
+<div class="aviso">
+    <strong>Importante:</strong><br>
+    Os valores apresentados são apenas referências de diárias.
+    A disponibilidade varia conforme a época do ano.
+    Entre em contato para montar seu roteiro completo.
+</div>
 
 <div class="grid">
 
+<!-- PIUVAL -->
+
 <div class="card">
-<img src="img/piuval.jpg">
+<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200">
 <div class="card-content">
 <h2>Pousada Piuval</h2>
-<p class="localizacao">Poconé</p>
-<p>Ideal para observação de aves, safáris e cavalgadas.</p>
-<a href="#" class="btn">Adicionar ao roteiro</a>
+<p class="localizacao">📍 Poconé - MT</p>
+<p>Excelente para observação de aves, safáris e vida selvagem.</p>
+
+<div class="tags">
+<span>🦜 Aves</span>
+<span>📸 Fotografia</span>
+<span>🌿 Natureza</span>
+</div>
+
+<p class="diaria">
+Diárias a partir de <strong>R$ 850</strong>
+</p>
+
+<p class="obs">
+Valor sujeito à disponibilidade.
+</p>
+
+<div class="botoes">
+<a class="btn maps" target="_blank"
+href="https://maps.google.com/?q=Pousada+Piuval">
+📍 Localização
+</a>
+
+<a class="btn roteiro"
+href="https://bento.host">
+Montar meu roteiro
+</a>
+</div>
 </div>
 </div>
 
+<!-- ARARAS -->
+
 <div class="card">
-<img src="img/araras.jpg">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200">
 <div class="card-content">
 <h2>Araras Eco Lodge</h2>
-<p class="localizacao">Km 32 - Transpantaneira</p>
+<p class="localizacao">📍 Transpantaneira</p>
+
 <p>Uma das hospedagens mais tradicionais do Pantanal.</p>
-<a href="#" class="btn">Adicionar ao roteiro</a>
+
+<div class="tags">
+<span>📸 Fotografia</span>
+<span>🦜 Aves</span>
+<span>🌿 Natureza</span>
+</div>
+
+<p class="diaria">
+Diárias a partir de <strong>R$ 1.200</strong>
+</p>
+
+<p class="obs">Valor sujeito à disponibilidade.</p>
+
+<div class="botoes">
+<a class="btn maps" target="_blank"
+href="https://maps.google.com/?q=Araras+Eco+Lodge">
+📍 Localização
+</a>
+
+<a class="btn roteiro"
+href="https://bento.host">
+Montar meu roteiro
+</a>
+</div>
 </div>
 </div>
 
+<!-- RIO CLARO -->
+
 <div class="card">
-<img src="img/rio-claro.jpg">
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=1200">
 <div class="card-content">
 <h2>Pousada Rio Claro</h2>
-<p class="localizacao">Km 41 - Transpantaneira</p>
-<p>Passeios de barco e observação de fauna.</p>
-<a href="#" class="btn">Adicionar ao roteiro</a>
+<p class="localizacao">📍 Km 41 Transpantaneira</p>
+
+<p>Passeios de barco e observação da fauna pantaneira.</p>
+
+<div class="tags">
+<span>🚤 Barco</span>
+<span>🐊 Fauna</span>
+<span>📸 Fotografia</span>
+</div>
+
+<p class="diaria">
+Diárias a partir de <strong>R$ 980</strong>
+</p>
+
+<p class="obs">Valor sujeito à disponibilidade.</p>
+
+<div class="botoes">
+<a class="btn maps" target="_blank"
+href="https://maps.google.com/?q=Pousada+Rio+Claro+Pantanal">
+📍 Localização
+</a>
+
+<a class="btn roteiro"
+href="https://bento.host">
+Montar meu roteiro
+</a>
+</div>
 </div>
 </div>
 
-<div class="card">
-<img src="img/pantanal-mt.jpg">
-<div class="card-content">
-<h2>Hotel Pantanal Mato Grosso</h2>
-<p class="localizacao">Km 48 - Transpantaneira</p>
-<p>Estrutura completa para famílias e grupos.</p>
-<a href="#" class="btn">Adicionar ao roteiro</a>
-</div>
-</div>
+<!-- PORTO JOFRE -->
 
 <div class="card">
-<img src="img/ueso.jpg">
+<img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?q=80&w=1200">
 <div class="card-content">
-<h2>UeSo Pantanal Lodge</h2>
-<p class="localizacao">Km 38 - Transpantaneira</p>
-<p>Experiência autêntica em meio à natureza.</p>
-<a href="#" class="btn">Adicionar ao roteiro</a>
-</div>
+<h2>Hotel Porto Jofre</h2>
+
+<p class="localizacao">
+📍 Porto Jofre
+</p>
+
+<p>
+Base ideal para quem deseja observar onças-pintadas.
+</p>
+
+<div class="tags">
+<span>🐆 Onças</span>
+<span>📸 Fotografia</span>
+<span>🌅 Premium</span>
 </div>
 
-<div class="card">
-<img src="img/safari-jaguar.jpg">
-<div class="card-content">
-<h2>Safari do Jaguar</h2>
-<p class="localizacao">Entrada da Transpantaneira</p>
-<p>Hospedagem voltada para observação de vida selvagem.</p>
-<a href="#" class="btn">Adicionar ao roteiro</a>
-</div>
-</div>
+<p class="diaria">
+Diárias a partir de <strong>R$ 1.450</strong>
+</p>
 
-<div class="card">
-<img src="img/porto-jofre-norte.jpg">
-<div class="card-content">
-<h2>Hotel Porto Jofre Pantanal Norte</h2>
-<p class="localizacao">Km 145</p>
-<p>Excelente base para observação de onças.</p>
-<a href="#" class="btn">Adicionar ao roteiro</a>
-</div>
-</div>
+<p class="obs">Valor sujeito à disponibilidade.</p>
 
-<div class="card">
-<img src="img/southwild.jpg">
-<div class="card-content">
-<h2>Porto Jofre Pantanal SouthWild</h2>
-<p class="localizacao">Km 146</p>
-<p>Próximo aos principais passeios de barco.</p>
-<a href="#" class="btn">Adicionar ao roteiro</a>
+<div class="botoes">
+<a class="btn maps" target="_blank"
+href="https://maps.google.com/?q=Hotel+Porto+Jofre">
+📍 Localização
+</a>
+
+<a class="btn roteiro"
+href="https://bento.host">
+Montar meu roteiro
+</a>
+</div>
 </div>
 </div>
 
@@ -251,35 +417,17 @@ footer{
 
 <footer>
 
-<h2>Monte seu pacote personalizado</h2>
+<h2>Planeje sua viagem ao Pantanal</h2>
 
 <p>
 Hospedagem + Passeios + Guia + Transporte
 </p>
 
-<br>
-
-<a class="btn" href="https://bento.host">
-Solicitar orçamento
+<a href="https://bento.host" class="btn roteiro">
+Consultar disponibilidade
 </a>
 
 </footer>
-
-<script>
-// Redirect clicks on any non-link area to index.html
-document.addEventListener('click', function (e) {
-  // Ignore clicks with modifier keys or right-clicks
-  if (e.defaultPrevented) return;
-  if (e.button !== 0) return; // only left clicks
-  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-
-  // If the click happened inside an <a> element, do nothing
-  if (e.target.closest && e.target.closest('a')) return;
-
-  // Otherwise navigate to index
-  window.location.href = 'index.html';
-});
-</script>
 
 </body>
 </html>
