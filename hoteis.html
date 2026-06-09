@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hospedagens no Pantanal | Bento Host - Operador de Turismo</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f8f9fa;
+    color:#333;
+    line-height:1.6;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:100;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    background:rgba(20,60,40,.95);
+    backdrop-filter:blur(10px);
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+.nav-logo{
+    color:white;
+    text-decoration:none;
+    font-size:1.5rem;
+    font-weight:700;
+    letter-spacing:0.5px;
+}
+
+.nav-logo span{
+    color:#2ecc71;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-size:.95rem;
+    font-weight:500;
+    transition:color 0.3s ease;
+}
+
+.nav-links a:hover{
+    color:#2ecc71;
+}
+
+.nav-cta{
+    background:#2ecc71;
+    color:#fff;
+    padding:10px 20px;
+    border-radius:8px;
+    font-weight:600;
+    transition:all 0.3s ease;
+}
+
+.nav-cta:hover{
+    background:#27ae60;
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(46,204,113,0.3);
+}
+
+.hero{
+    height:65vh;
+    background:linear-gradient(135deg, #1a4d2e 0%, #2d6a4f 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    margin-top:60px;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 600'%3E%3Cpath d='M0,300 Q300,250 600,300 T1200,300 L1200,600 L0,600 Z' fill='rgba(46,204,113,0.1)'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    color:white;
+    max-width:900px;
+    padding:40px;
+}
+
+.hero h1{
+    font-size:3.5rem;
+    margin-bottom:20px;
+    font-weight:700;
+    text-shadow:0 2px 10px rgba(0,0,0,0.3);
+}
+
+.hero p{
+    font-size:1.2rem;
+    margin-bottom:30px;
+    opacity:0.95;
+}
+
+.hero-btn{
+    display:inline-block;
+    background:#2ecc71;
+    color:white;
+    padding:15px 35px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+    transition:all 0.3s ease;
+    box-shadow:0 5px 15px rgba(46,204,113,0.3);
+}
+
+.hero-btn:hover{
+    background:#27ae60;
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(46,204,113,0.4);
+}
+
+.container{
+    max-width:1400px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:2.5rem;
+    color:#1a4d2e;
+    margin-bottom:15px;
+    font-weight:700;
+}
+
+.section-title p{
+    font-size:1.1rem;
+    color:#666;
+    max-width:600px;
+    margin:0 auto;
+}
+
+.aviso{
+    background:linear-gradient(135deg, #e8f5e9 0%, #f1f8f6 100%);
+    border-left:6px solid #2ecc71;
+    padding:25px;
+    border-radius:12px;
+    margin-bottom:50px;
+    box-shadow:0 2px 8px rgba(46,204,113,0.1);
+}
+
+.aviso strong{
+    color:#1a4d2e;
+    font-size:1.05rem;
+}
+
+.aviso p{
+    color:#555;
+    margin-top:10px;
+    line-height:1.7;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:30px;
+    margin-bottom:40px;
+}
+
+.card{
+    background:white;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    transition:all 0.3s ease;
+    border:1px solid #f0f0f0;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 12px 30px rgba(0,0,0,0.15);
+}
+
+.card-image-container{
+    position:relative;
+    width:100%;
+    height:250px;
+    overflow:hidden;
+    background:#f0f0f0;
+}
+
+.card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform 0.3s ease;
+}
+
+.card:hover img{
+    transform:scale(1.05);
+}
+
+.card-badge{
+    position:absolute;
+    top:15px;
+    right:15px;
+    background:rgba(46,204,113,0.9);
+    color:white;
+    padding:8px 15px;
+    border-radius:20px;
+    font-size:0.85rem;
+    font-weight:600;
+    backdrop-filter:blur(10px);
+}
+
+.card-content{
+    padding:25px;
+}
+
+.card h2{
+    margin-bottom:10px;
+    color:#1a4d2e;
+    font-size:1.4rem;
+    font-weight:700;
+}
+
+.localizacao{
+    color:#2ecc71;
+    margin-bottom:12px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.card-description{
+    color:#666;
+    margin-bottom:15px;
+    font-size:0.95rem;
+    line-height:1.6;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:18px 0;
+}
+
+.tags span{
+    background:linear-gradient(135deg, #e8f5e9 0%, #f1f8f6 100%);
+    color:#1a4d2e;
+    padding:7px 14px;
+    border-radius:20px;
+    font-size:0.85rem;
+    font-weight:500;
+    border:1px solid #c8e6c9;
+}
+
+.diaria{
+    margin-top:20px;
+    padding-top:20px;
+    border-top:2px solid #f0f0f0;
+    font-size:1.1rem;
+    color:#1a4d2e;
+}
+
+.diaria strong{
+    color:#2ecc71;
+    font-size:1.3rem;
+}
+
+.obs{
+    font-size:0.8rem;
+    color:#999;
+    margin-top:8px;
+    font-style:italic;
+}
+
+.botoes{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:22px;
+}
+
+.btn{
+    flex:1;
+    min-width:140px;
+    text-decoration:none;
+    color:white;
+    padding:12px 18px;
+    border-radius:8px;
+    font-size:0.9rem;
+    font-weight:600;
+    text-align:center;
+    transition:all 0.3s ease;
+    border:none;
+    cursor:pointer;
+}
+
+.maps{
+    background:#3498db;
+}
+
+.maps:hover{
+    background:#2980b9;
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(52,152,219,0.3);
+}
+
+.roteiro{
+    background:#2ecc71;
+}
+
+.roteiro:hover{
+    background:#27ae60;
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(46,204,113,0.3);
+}
+
+.site-oficial{
+    background:#9b59b6;
+}
+
+.site-oficial:hover{
+    background:#8e44ad;
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(155,89,182,0.3);
+}
+
+footer{
+    background:#1a4d2e;
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+    margin-top:80px;
+}
+
+footer h2{
+    font-size:2rem;
+    margin-bottom:15px;
+    font-weight:700;
+}
+
+footer p{
+    font-size:1.05rem;
+    margin-bottom:30px;
+    opacity:0.9;
+}
+
+footer .btn{
+    display:inline-block;
+    margin-top:20px;
+    min-width:auto;
+}
+
+.footer-info{
+    margin-top:40px;
+    padding-top:30px;
+    border-top:1px solid rgba(255,255,255,0.2);
+    font-size:0.95rem;
+    opacity:0.85;
+}
+
+@media(max-width:768px){
+
+.nav-links{
+    display:none;
+}
+
+.hero h1{
+    font-size:2rem;
+}
+
+.hero-content{
+    padding:20px;
+}
+
+.section-title h2{
+    font-size:1.8rem;
+}
+
+.grid{
+    grid-template-columns:1fr;
+    gap:20px;
+}
+
+.botoes{
+    flex-direction:column;
+}
+
+.btn{
+    min-width:auto;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="https://bento.host" class="nav-logo">
+        Pantanal <span>Selvagem</span>
+    </a>
+
+    <div class="nav-links">
+        <a href="#hospedagens">HOSPEDAGENS</a>
+        <a href="#pacotes">PACOTES</a>
+        <a href="#contato">CONTATO</a>
+    </div>
+
+    <a href="https://bento.host" class="nav-cta">Consultar</a>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Hospedagens no Pantanal</h1>
+        <p>
+            Escolha a pousada ideal e monte um roteiro personalizado
+            com passeios, transporte e guia especializado.
+        </p>
+        <a href="#hospedagens" class="hero-btn">Explorar Pousadas</a>
+    </div>
+</section>
+
+<div class="container">
+
+<div class="section-title">
+    <h2>Pousadas na Transpantaneira</h2>
+    <p>Hospedagens de qualidade localizadas na Rodovia Transpantaneira, com acesso a atividades de ecoturismo e observação de vida selvagem</p>
+</div>
+
+<div class="aviso">
+    <strong>Importante:</strong>
+    <p>Os valores apresentados são referências de diárias para hospedagem. A disponibilidade varia conforme a época do ano e a sazonalidade. Entre em contato conosco para montar seu roteiro completo com transporte, guias especializados e atividades inclusas.</p>
+</div>
+
+<div class="grid" id="hospedagens">
+
+<!-- POUSADA PIUVAL -->
+
+<div class="card">
+<div class="card-image-container">
+    <img src="https://pousadapiuval.com.br/wp-content/uploads/2026/03/focagem-1-1024x683.jpg" alt="Pousada Piuval - Cavalgada no Pantanal">
+    <div class="card-badge">⭐ Premium</div>
+</div>
+<div class="card-content">
+<h2>Pousada Piuval</h2>
+<p class="localizacao">📍 Km 10 Transpantaneira - Poconé/MT</p>
+<p class="card-description">Estrutura sustentável com excelente conforto. Ideal para observação de aves, safáris e vida selvagem. Piscina, quadra de vôlei e torres de observação.</p>
+
+<div class="tags">
+<span>🦜 Aves</span>
+<span>📸 Fotografia</span>
+<span>🌿 Natureza</span>
+<span>🏊 Piscina</span>
+</div>
+
+<p class="diaria">
+Diárias a partir de <strong>R$ 850</strong>
+</p>
+
+<p class="obs">
+Valor sujeito à disponibilidade e época do ano.
+</p>
+
+<div class="botoes">
+<a class="btn maps" target="_blank" href="https://maps.google.com/?q=Pousada+Piuval+Pocone">
+📍 Mapa
+</a>
+
+<a class="btn site-oficial" target="_blank" href="https://pousadapiuval.com.br/">
+🌐 Site
+</a>
+
+<a class="btn roteiro" href="https://bento.host">
+📋 Roteiro
+</a>
+</div>
+</div>
+</div>
+
+<!-- ARARAS ECO LODGE -->
+
+<div class="card">
+<div class="card-image-container">
+    <img src="https://araraslodge.com.br/wp-content/uploads/2022/12/pac204.jpg" alt="Araras Eco Lodge - Pantanal">
+    <div class="card-badge">🏆 Tradicional</div>
+</div>
+<div class="card-content">
+<h2>Araras Eco Lodge</h2>
+<p class="localizacao">📍 Km 32 Transpantaneira - Poconé/MT</p>
+
+<p class="card-description">Uma das hospedagens mais tradicionais do Pantanal. 30 anos de história em ecoturismo. 19 suítes com varandas com redes, piscina, torres de observação e bar.</p>
+
+<div class="tags">
+<span>📸 Fotografia</span>
+<span>🦜 Aves</span>
+<span>🌿 Natureza</span>
+<span>🎯 Roteiros</span>
+</div>
+
+<p class="diaria">
+Diárias a partir de <strong>R$ 1.200</strong>
+</p>
+
+<p class="obs">Valor sujeito à disponibilidade.</p>
+
+<div class="botoes">
+<a class="btn maps" target="_blank" href="https://maps.google.com/?q=Araras+Eco+Lodge+Pocone">
+📍 Mapa
+</a>
+
+<a class="btn site-oficial" target="_blank" href="https://araraslodge.com.br/">
+🌐 Site
+</a>
+
+<a class="btn roteiro" href="https://bento.host">
+📋 Roteiro
+</a>
+</div>
+</div>
+</div>
+
+<!-- POUSADA RIO CLARO -->
+
+<div class="card">
+<div class="card-image-container">
+    <img src="https://pantanaltours.com/wp-content/uploads/2018/01/dsc3355.jpg" alt="Pousada Rio Claro - Rio Claro">
+    <div class="card-badge">🚤 Barcos</div>
+</div>
+<div class="card-content">
+<h2>Pousada Rio Claro</h2>
+<p class="localizacao">📍 Km 42 Transpantaneira - Poconé/MT</p>
+
+<p class="card-description">Localizada às margens do Rio Claro. 28 quartos confortáveis. Passeios de barco, trilhas e observação da fauna pantaneira. Piscina e restaurante.</p>
+
+<div class="tags">
+<span>🚤 Barco</span>
+<span>🐊 Fauna</span>
+<span>📸 Fotografia</span>
+<span>🏊 Piscina</span>
+</div>
+
+<p class="diaria">
+Diárias a partir de <strong>R$ 980</strong>
+</p>
+
+<p class="obs">Valor sujeito à disponibilidade.</p>
+
+<div class="botoes">
+<a class="btn maps" target="_blank" href="https://maps.google.com/?q=Pousada+Rio+Claro+Pocone">
+📍 Mapa
+</a>
+
+<a class="btn site-oficial" target="_blank" href="https://pantanaltours.com/lodge/pousada-rio-claro">
+🌐 Info
+</a>
+
+<a class="btn roteiro" href="https://bento.host">
+📋 Roteiro
+</a>
+</div>
+</div>
+</div>
+
+<!-- HOTEL PANTANAL MATO GROSSO -->
+
+<div class="card">
+<div class="card-image-container">
+    <img src="https://hotelmt.com.br/wp-content/uploads/2023/10/hotel-pantanal-mato-grosso-pixaim-1024x683.jpg" alt="Hotel Pantanal Mato Grosso - Rio Pixaim">
+    <div class="card-badge">🦦 Ariranhas</div>
+</div>
+<div class="card-content">
+<h2>Hotel Pantanal Mato Grosso</h2>
+<p class="localizacao">📍 Km 65 Transpantaneira - Rio Pixaim/MT</p>
+
+<p class="card-description">Localizado às margens do Rio Pixaim. Ótimo para observação de ariranhas, aves e vida selvagem. Piscina infantil, campo de futebol e restaurante.</p>
+
+<div class="tags">
+<span>🦦 Ariranhas</span>
+<span>🦜 Aves</span>
+<span>🏊 Piscina</span>
+<span>⚽ Lazer</span>
+</div>
+
+<p class="diaria">
+Diárias a partir de <strong>R$ 950</strong>
+</p>
+
+<p class="obs">Valor sujeito à disponibilidade.</p>
+
+<div class="botoes">
+<a class="btn maps" target="_blank" href="https://maps.google.com/?q=Hotel+Pantanal+Mato+Grosso+Pixaim">
+📍 Mapa
+</a>
+
+<a class="btn site-oficial" target="_blank" href="https://hotelmt.com.br/pantanal-mato-rosso-hotel/">
+🌐 Site
+</a>
+
+<a class="btn roteiro" href="https://bento.host">
+📋 Roteiro
+</a>
+</div>
+</div>
+</div>
+
+<!-- POUSO ALEGRE LODGE -->
+
+<div class="card">
+<div class="card-image-container">
+    <img src="https://www.pousoalegrelodge.com/wp-content/uploads/2022/05/Pouso-Alegre-Lodge-Pantanal-Landscape.jpg" alt="Pouso Alegre Lodge - Fazenda Pantanal">
+    <div class="card-badge">🌿 Eco</div>
+</div>
+<div class="card-content">
+<h2>Pouso Alegre Lodge</h2>
+<p class="localizacao">📍 Km 33 Transpantaneira - Poconé/MT</p>
+
+<p class="card-description">Santuário de vida selvagem em autêntica fazenda pantaneira. 24 apartamentos. Pesquisa em herpetofauna desde 1998. Ideal para ver antas e tamanduás.</p>
+
+<div class="tags">
+<span>🐗 Antas</span>
+<span>🌿 Natureza</span>
+<span>📸 Fotografia</span>
+<span>🔬 Pesquisa</span>
+</div>
+
+<p class="diaria">
+Diárias a partir de <strong>R$ 800</strong>
+</p>
+
+<p class="obs">Valor sujeito à disponibilidade.</p>
+
+<div class="botoes">
+<a class="btn maps" target="_blank" href="https://maps.google.com/?q=Pouso+Alegre+Lodge+Pocone">
+📍 Mapa
+</a>
+
+<a class="btn site-oficial" target="_blank" href="https://www.pousoalegrelodge.com/inicio">
+🌐 Site
+</a>
+
+<a class="btn roteiro" href="https://bento.host">
+📋 Roteiro
+</a>
+</div>
+</div>
+</div>
+
+<!-- HOTEL PORTO JOFRE -->
+
+<div class="card">
+<div class="card-image-container">
+    <img src="https://www.portojofre.com.br/site/wp-content/uploads/2024/06/Alta-16-scaled.jpg" alt="Hotel Porto Jofre - Onças-pintadas">
+    <div class="card-badge">🐆 Onças</div>
+</div>
+<div class="card-content">
+<h2>Hotel Porto Jofre (Pantanal Norte)</h2>
+
+<p class="localizacao">
+📍 Km 145 Transpantaneira - Porto Jofre/MT
+</p>
+
+<p class="card-description">
+Melhor ponto do mundo para observar onças-pintadas! Pioneiro desde 1984. 36 apartamentos, lanchas Marajó, pista de pouso e estrutura completa para ecoturismo e pesca.
+</p>
+
+<div class="tags">
+<span>🐆 Onças</span>
+<span>🚤 Barco</span>
+<span>🌅 Premium</span>
+<span>✈️ Pista</span>
+</div>
+
+<p class="diaria">
+Diárias a partir de <strong>R$ 1.546</strong>
+</p>
+
+<p class="obs">Valor sujeito à disponibilidade. Inclui refeições.</p>
+
+<div class="botoes">
+<a class="btn maps" target="_blank" href="https://maps.google.com/?q=Hotel+Porto+Jofre+Pocone">
+📍 Mapa
+</a>
+
+<a class="btn site-oficial" target="_blank" href="https://www.portojofre.com.br/site/">
+🌐 Site
+</a>
+
+<a class="btn roteiro" href="https://bento.host">
+📋 Roteiro
+</a>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<footer id="contato">
+
+<h2>Planeje sua viagem ao Pantanal</h2>
+
+<p>
+Hospedagem + Passeios + Guia Especializado + Transporte
+</p>
+
+<p style="font-size:0.95rem; margin-top:20px;">
+Sou operador de turismo especializado em Pantanal. Monto roteiros personalizados com as melhores pousadas da Transpantaneira.
+</p>
+
+<a href="https://bento.host" class="btn roteiro" style="display:inline-block; margin-top:20px; min-width:auto;">
+Consultar Disponibilidade
+</a>
+
+<div class="footer-info">
+<p>Araras Ecolodge - Operador de Turismo Pantanal</p>
+<p>📍 Transpantaneira, Poconé - MT</p>
+<p>🌐 <a href="https://bento.host" style="color:#2ecc71; text-decoration:none;">bento.host</a></p>
+</div>
+
+</footer>
+
+</body>
+</html>
